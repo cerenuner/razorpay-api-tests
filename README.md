@@ -92,12 +92,12 @@ mvn test
 
 For running customer creation scenarios use
 ```bash
-mvn test -Dcucumber.options="--tags @customerCreation
+mvn test -Dcucumber.options="--tags @customerCreation"
 ```
 
 For running order creation scenarios use
 ```bash
-mvn test -Dcucumber.options="--tags @orderCreation
+mvn test -Dcucumber.options="--tags @orderCreation"
 ```
 
 ### Test reporting

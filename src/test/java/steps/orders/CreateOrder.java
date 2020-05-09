@@ -154,18 +154,18 @@ public class CreateOrder {
 
     //Fifth scenario
     @Given("I create order data with amount of 1")
-    public void createOrderDataForNegativeAmount() {
+    public void createOrderDataForAmountOfOne() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(1, Currency.UnitedStatesDollar, String.valueOf(orderPrefix), true, "noteAutomation");
     }
 
     @When("I used POST request to create order with amount of 1")
-    public void postOrderInfoForNegativeAmount() {
+    public void postOrderInfoForAmountOfOne() {
         response = request.body(orderInfo.toJSONString()).post().then();
     }
 
     @Then("I get a response code of 200 for order with amount of 1")
-    public void inspectStatusCodeForNegativeAmount() {
+    public void inspectStatusCodeForAmountOfOne() {
         response.statusCode(HttpStatus.SC_OK);
     }
 

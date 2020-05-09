@@ -32,7 +32,7 @@ public class CreateOrder {
 
     //First scenario
     @Given("I create order data with all fields as expected")
-    public void setApiKeyIdAndApiKeyProperRequest() {
+    public void createOrderDataForProperRequest() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(orderPrefix, Currency.IndianRupee, String.valueOf(orderPrefix), true, "noteAutomation");
     }
@@ -64,7 +64,7 @@ public class CreateOrder {
 
     //Second scenario
     @Given("I create order data without amount information")
-    public void setApiKeyIdAndApiKeyForMissingAmount() {
+    public void createOrderDataForMissingAmount() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(orderPrefix, Currency.CzechKoruna, String.valueOf(orderPrefix), true, "noteAutomation");
         orderInfo.remove("amount");
@@ -87,7 +87,7 @@ public class CreateOrder {
 
     //Third scenario
     @Given("I create order data without currency information")
-    public void setApiKeyIdAndApiKeyForMissingCurrency() {
+    public void createOrderDataForMissingCurrency() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(orderPrefix, Currency.UnitedStatesDollar, String.valueOf(orderPrefix), true, "noteAutomation");
         orderInfo.remove("currency");
@@ -110,7 +110,7 @@ public class CreateOrder {
 
     //Fourth scenario
     @Given("I create order data with invalid currency")
-    public void setApiKeyIdAndApiKeyForInvalidCurrency() {
+    public void createOrderDataForInvalidCurrency() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(orderPrefix, "xxx", String.valueOf(orderPrefix), true, "noteAutomation");
     }
@@ -132,7 +132,7 @@ public class CreateOrder {
 
     //Fifth scenario
     @Given("I create order data with zero amount")
-    public void setApiKeyIdAndApiKeyForZeroAmount() {
+    public void createOrderDataForZeroAmount() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(0, Currency.IndianRupee, String.valueOf(orderPrefix), true, "noteAutomation");
     }
@@ -152,10 +152,9 @@ public class CreateOrder {
         response.body("error.description", IsEqual.equalTo(errorMessage));
     }
 
-
     //Fifth scenario
     @Given("I create order data with amount of 1")
-    public void setApiKeyIdAndApiKeyForNegativeAmount() {
+    public void createOrderDataForNegativeAmount() {
         int orderPrefix = new Random().nextInt(1000000);
         orderInfo = JsonObjectCreator.getOrderJsonObject(1, Currency.UnitedStatesDollar, String.valueOf(orderPrefix), true, "noteAutomation");
     }

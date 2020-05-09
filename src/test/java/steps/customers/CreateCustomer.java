@@ -30,7 +30,7 @@ public class CreateCustomer {
 
     //First scenario
     @Given("I create customer data with all fields as expected")
-    public void setApiKeyIdAndApiKeyProperRequest() {
+    public void createCustomerDataForProperRequest() {
         int customerPrefix = new Random().nextInt(1000000);
         customerInfo = JsonObjectCreator.getCustomerJsonObject("customer" + customerPrefix, customerPrefix + "@test.com", "+49" + customerPrefix, "0", "test note");
     }
@@ -59,7 +59,7 @@ public class CreateCustomer {
 
     //Second scenario
     @Given("I create customer data without name information")
-    public void setApiKeyIdAndApiKeyForMissingName() {
+    public void createCustomerDataForMissingName() {
         int customerPrefix = new Random().nextInt(1000000);
         customerInfo = JsonObjectCreator.getCustomerJsonObject("customer" + customerPrefix, customerPrefix + "@test.com", "+49" + customerPrefix, "0", "test note");
         customerInfo.remove("name");
@@ -77,7 +77,7 @@ public class CreateCustomer {
 
     //Third scenario
     @Given("I create customer data without contact information")
-    public void setApiKeyIdAndApiKeyForMissingContact() {
+    public void createCustomerDataForMissingContact() {
         int customerPrefix = new Random().nextInt(1000000);
         customerInfo = JsonObjectCreator.getCustomerJsonObject("customer" + customerPrefix, customerPrefix + "@test.com", "+49" + customerPrefix, "0", "test note");
         customerInfo.remove("contact");
@@ -95,7 +95,7 @@ public class CreateCustomer {
 
     //Fourth scenario
     @Given("I create customer data with wrong email address")
-    public void setApiKeyIdAndApiKeyForWrongEmail() {
+    public void createCustomerDataForWrongEmail() {
         int customerPrefix = new Random().nextInt(1000000);
         customerInfo = JsonObjectCreator.getCustomerJsonObject("customer" + customerPrefix, "wrongEmail", "+49" + customerPrefix, "0", "test note");
     }
@@ -117,7 +117,7 @@ public class CreateCustomer {
 
     //Fifth scenario
     @Given("I create customer data with wrong contact information")
-    public void setApiKeyIdAndApiKeyForWrongContact() {
+    public void createCustomerDataForWrongContact() {
         int customerPrefix = new Random().nextInt(1000000);
         customerInfo = JsonObjectCreator.getCustomerJsonObject("customer" + customerPrefix, customerPrefix + "@test.com", "onlyString", "0", "test note");
     }
